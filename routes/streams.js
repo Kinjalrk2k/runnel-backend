@@ -16,4 +16,9 @@ router.get("/:id", async (req, res) => {
   res.json(stream);
 });
 
+router.put("/:id", async (req, res) => {
+  const editedStream = await Stream.findByIdAndUpdate(req.params.id, req.body);
+  res.json(editedStream);
+});
+
 module.exports = router;
