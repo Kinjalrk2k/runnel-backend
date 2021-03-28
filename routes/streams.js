@@ -23,4 +23,9 @@ router.patch("/:id", async (req, res) => {
   res.json(editedStream);
 });
 
+router.delete("/:id", async (req, res) => {
+  await Stream.findByIdAndDelete(req.params.id);
+  res.json({});
+});
+
 module.exports = router;
