@@ -28,4 +28,11 @@ router.delete("/:id", async (req, res) => {
   res.json({});
 });
 
+router.get("/streamer/:id", async (req, res) => {
+  const streams = await Stream.find({ userId: req.params.id }).sort(
+    "-createdOn"
+  );
+  res.json(streams);
+});
+
 module.exports = router;
